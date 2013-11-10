@@ -51,7 +51,7 @@ var MainController = {
   login: function(req, res) {
   	var username = req.param("username");
   	var password = req.param("password");
-
+    
   	Users.findOneByUsername(username).done(function(err, usr) {
   		if (err) {
   			res.set('error', 'DB Error')

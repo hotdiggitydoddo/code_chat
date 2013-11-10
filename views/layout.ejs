@@ -20,6 +20,8 @@
       as you would normally: using <link/> tags.
       
     -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
 
     <!--
 
@@ -36,6 +38,7 @@
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
 
        <!-- Bring in the socket.io client -->
     <script type="text/javascript" src="/js/socket.io.js"></script>
@@ -47,6 +50,8 @@
   </head>
 
   <body>
+
+    <%- partial('partials/header')%>
 
     <!-- Include the view file for the current controller/route -->
     <%- body %>
