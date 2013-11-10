@@ -4,7 +4,15 @@
 			<a class="navbar-brand" href="#">Code Chat</a>
 		</div>
 		<div class="navbar-collapse collapse">
-			<form id="form1" class="navbar-form navbar-right">
+			<% if (req.session.user != null) { %>
+				<div class="navbar-right">
+					<label style="color: white">Hello, <%- username %>.  </label>
+					<button id="logoutButton" class="btn btn-success">Logout</button>
+				</div>
+			<% }	
+
+				else { %>
+<form id="form1" class="navbar-form navbar-right">
 				<div class="form-group">
 					<input type="text" id="loginName" class="form-control" placeholder="Username" />
 				</div>	
@@ -13,6 +21,9 @@
 				</div>
 					<button id="loginButton" class="btn btn-success">Login</button>
 			</form>
+				<% } %>
+
+			
 		</div>
 	</div>
 </div>
@@ -38,5 +49,13 @@
 		} else {
 			alert("A username and password is required");
 		}
+	});
+
+	$("#logoutButton").click(function() {
+		$.post(
+			'/logout', {}, function() { window.location = '/'; }
+		).fail(function(res) {
+			alert("Error: " + res.getResponseHeader("error"));
+		});
 	});
 </script>

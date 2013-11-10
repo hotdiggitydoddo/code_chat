@@ -48,6 +48,12 @@ var MainController = {
   	});
   },
 
+
+  logout: function(req, res) {
+    req.session.destroy();
+    res.redirect('/');
+  },
+
   login: function(req, res) {
   	var username = req.param("username");
   	var password = req.param("password");
@@ -73,6 +79,7 @@ var MainController = {
   		}
   	});
   },
+
 
   chat: function(req, res) {
     if (req.session.user) {
